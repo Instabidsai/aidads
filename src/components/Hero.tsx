@@ -30,9 +30,9 @@ export function Hero() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         <motion.div {...fadeUp(0)}>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-border)]/40 bg-[var(--color-bg-elevated)]/20 backdrop-blur-md mb-8">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-border)]/40 bg-[var(--color-bg-elevated)]/20 backdrop-blur-md mb-8 opacity-70">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-text-secondary)] animate-pulse opacity-50" />
-            <span className="text-xs font-medium tracking-[-0.005em] text-[var(--color-text-muted)]">
+            <span className="text-[11px] font-medium tracking-[-0.005em] text-[var(--color-text-muted)]">
               17 companies running autonomously
             </span>
           </div>

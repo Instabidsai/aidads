@@ -136,6 +136,11 @@ h2 {
   letter-spacing: -0.03em;
 }
 
+section h2 {
+  font-weight: 700;
+  line-height: 1.1;
+}
+
 h3, h4 {
   letter-spacing: -0.02em;
 }

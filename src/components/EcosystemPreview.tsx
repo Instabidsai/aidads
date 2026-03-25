@@ -32,7 +32,7 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
             {company.name.slice(0, 2).toUpperCase()}
           </div>
           <div>
-            <h3 className="font-semibold text-base text-[var(--color-text)] group-hover:text-white transition-colors">
+            <h3 className="font-semibold text-base text-[var(--color-text)] group-hover:text-white transition-colors mb-1">
               {company.name}
             </h3>
             <span className="text-xs text-[var(--color-text-muted)]">
@@ -48,7 +48,7 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
         </span>
       </div>
 
-      <p className="text-sm text-[var(--color-text-secondary)] leading-[1.6] mb-3">
+      <p className="text-sm text-[var(--color-text-secondary)] leading-[1.6] mb-4">
         {company.description}
       </p>
 
