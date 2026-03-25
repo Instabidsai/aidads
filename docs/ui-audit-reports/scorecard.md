@@ -9,3 +9,6 @@ Reference: linear.app
 | 3 | Unified labels, nav refinement, dark bg layering | 7.2 | 7.6 | 7.6/10 | 8 |
 | 4 | Interactive states, footer polish, subpage alignment | 7.6 | 7.9 | 7.9/10 | 5 |
 | 5 | Mobile layout, animation polish, final sweep | 7.9 | 8.1 | 8.1/10 | 10 |
+| 6 | Favicon, card breathing, badge subtlety, heading weight | 8.1 | 8.2 | 8.2/10 | 5 |
+
+**STOP CONDITION MET**: Score plateau (8.1 → 8.2, +0.1 delta). Remaining gaps are content (photos, video, testimonials), not code.
