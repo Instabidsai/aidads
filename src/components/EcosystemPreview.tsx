@@ -21,7 +21,7 @@ function CompanyCard({ company, index }: { company: Company; index: number }) {
       transition={{ duration: 0.4, delay: 0.05 * index }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="card p-5 group cursor-pointer block focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
+      className="card p-4 sm:p-5 group cursor-pointer block focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">

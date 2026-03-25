@@ -62,7 +62,7 @@ export default function EcosystemPage() {
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           <button
             onClick={() => setFilter("all")}
-            className={`text-xs px-4 py-2 rounded-full border transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)] ${
+            className={`text-xs px-4 py-2 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)] ${
               filter === "all"
                 ? "border-[var(--color-accent-indigo)] text-[var(--color-accent-indigo)] bg-[var(--color-accent-indigo)]/10"
                 : "border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-hover)]"
@@ -76,7 +76,7 @@ export default function EcosystemPage() {
               <button
                 key={type}
                 onClick={() => setFilter(type)}
-                className={`text-xs px-4 py-2 rounded-full border transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)] ${
+                className={`text-xs px-4 py-2 rounded-full border transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)] ${
                   filter === type
                     ? `border-current bg-current/10`
                     : "border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-hover)]"
@@ -104,7 +104,7 @@ export default function EcosystemPage() {
                   href={`https://${company.domain}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card p-5 group block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
+                  className="card p-4 sm:p-5 group block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
                   onMouseEnter={() => setSelected(company)}
                   onMouseLeave={() => setSelected(null)}
                 >

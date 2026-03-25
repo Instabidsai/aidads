@@ -40,7 +40,7 @@ export function NumbersSection() {
               }}
               className="card-stat p-8 sm:p-10 text-center"
             >
-              <div className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-br from-[var(--color-text)] to-[var(--color-text-secondary)] bg-clip-text text-transparent mb-3 [font-variant-numeric:tabular-nums]">
+              <div className="text-3xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-br from-[var(--color-text)] to-[var(--color-text-secondary)] bg-clip-text text-transparent mb-3 [font-variant-numeric:tabular-nums]">
                 {stat.value}
               </div>
               <div className="text-sm font-medium text-[var(--color-text-muted)]">

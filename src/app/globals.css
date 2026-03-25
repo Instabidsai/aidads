@@ -99,6 +99,7 @@ body {
   background: var(--color-bg-elevated);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
+  will-change: transform;
 }
 
 .card-stat {
@@ -156,4 +157,15 @@ p, li, td, th {
 :focus-visible {
   outline: 2px solid var(--color-accent-indigo);
   outline-offset: 2px;
+}
+
+/* Hero gradient shimmer */
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.shimmer-text {
+  background-size: 200% auto;
+  animation: shimmer 8s linear infinite;
 }

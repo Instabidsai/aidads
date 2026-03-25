@@ -50,10 +50,10 @@ export function Hero() {
                   ease: [0.16, 1, 0.3, 1],
                 },
               })}
-          className="text-5xl sm:text-6xl md:text-8xl font-black tracking-[-0.04em] leading-[0.95] mb-8 md:mb-10 [text-wrap:balance]"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-[-0.04em] leading-[0.95] mb-8 md:mb-10 [text-wrap:balance]"
         >
           I build and operate{" "}
-          <span className="bg-gradient-to-r from-[var(--color-text)] via-[var(--color-text)] to-[var(--color-accent-indigo)] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[var(--color-text)] via-[var(--color-text)] to-[var(--color-accent-indigo)] bg-clip-text text-transparent shimmer-text">
             AI-run companies
           </span>
         </motion.h1>
@@ -85,7 +85,7 @@ export function Hero() {
             whileHover={prefersReducedMotion ? {} : { scale: 1.03, y: -1 }}
             whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
-            className="px-8 py-3.5 rounded-lg bg-[var(--color-accent-indigo)] text-white font-medium transition-shadow duration-200 hover:shadow-lg hover:shadow-[var(--color-accent-indigo)]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-[var(--color-accent-indigo)] text-white font-medium text-center transition-shadow duration-200 hover:shadow-lg hover:shadow-[var(--color-accent-indigo)]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             See the Ecosystem
           </motion.a>
@@ -94,7 +94,7 @@ export function Hero() {
             whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
             whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
-            className="px-8 py-3.5 rounded-lg border border-[var(--color-border)]/50 text-[var(--color-text-secondary)] transition-colors duration-200 hover:border-[var(--color-border)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-elevated)]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-lg border border-[var(--color-border)]/50 text-[var(--color-text-secondary)] text-center transition-colors duration-200 hover:border-[var(--color-border)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-elevated)]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             Let&apos;s Build Together
           </motion.a>

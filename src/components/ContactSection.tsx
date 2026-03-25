@@ -38,13 +38,13 @@ export function ContactSection() {
         >
           <a
             href="mailto:justin@aidads.com"
-            className="px-8 py-3.5 rounded-lg bg-[var(--color-accent-indigo)] text-white font-medium hover:bg-[var(--color-accent-indigo)]/80 transition-[background-color,box-shadow] hover:shadow-lg hover:shadow-[var(--color-accent-indigo)]/10 text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-[var(--color-accent-indigo)] text-white font-medium text-center hover:bg-[var(--color-accent-indigo)]/80 transition-[background-color,box-shadow] hover:shadow-lg hover:shadow-[var(--color-accent-indigo)]/10 text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             justin@aidads.com
           </a>
           <a
             href="tel:+15615587020"
-            className="px-8 py-3.5 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-elevated)] transition-[border-color,background-color] text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] text-center hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-elevated)] transition-[border-color,background-color] text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             (561) 558-7020
           </a>
@@ -52,7 +52,7 @@ export function ContactSection() {
             href="https://linkedin.com/in/justinthompson"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3.5 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-elevated)] transition-[border-color,background-color] text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] text-center hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-elevated)] transition-[border-color,background-color] text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             Connect on LinkedIn
           </a>

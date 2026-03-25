@@ -238,7 +238,7 @@ export default function PartnershipsPage() {
               </div>
               <button
                 type="submit"
-                className="px-8 py-3 rounded-lg bg-[var(--color-accent-amber)] text-black font-medium hover:bg-[var(--color-accent-amber)]/80 transition-all text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-amber)]"
+                className="px-8 py-3 rounded-lg bg-[var(--color-accent-amber)] text-black font-medium hover:bg-[var(--color-accent-amber)]/80 transition-colors text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-amber)]"
               >
                 Submit Application
               </button>
