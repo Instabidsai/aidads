@@ -1,12 +1,13 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 import Link from "next/link";
 import { companies, typeColors, typeLabels, type Company } from "@/lib/data";
 
-function CompanyCard({ company, index, inView }: { company: Company; index: number; inView: boolean }) {
+function CompanyCard({ company, index }: { company: Company; index: number }) {
   const [hovered, setHovered] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const color = typeColors[company.type];
 
   return (
@@ -14,23 +15,24 @@ function CompanyCard({ company, index, inView }: { company: Company; index: numb
       href={`https://${company.domain}`}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.4, delay: 0.03 * index }}
+      initial={prefersReducedMotion ? {} : { opacity: 0, y: 16 }}
+      whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4, delay: 0.05 * index }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="gradient-border p-5 group cursor-pointer block"
+      className="card p-5 group cursor-pointer block focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
           <div
             className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xs"
-            style={{ backgroundColor: color + "20", color }}
+            style={{ backgroundColor: color + "10", color }}
           >
             {company.name.slice(0, 2).toUpperCase()}
           </div>
           <div>
-            <h3 className="font-semibold text-sm text-[var(--color-text)] group-hover:text-white transition-colors">
+            <h3 className="font-semibold text-base text-[var(--color-text)] group-hover:text-white transition-colors">
               {company.name}
             </h3>
             <span className="text-xs text-[var(--color-text-muted)]">
@@ -39,14 +41,14 @@ function CompanyCard({ company, index, inView }: { company: Company; index: numb
           </div>
         </div>
         <span
-          className="text-[10px] font-medium px-2 py-0.5 rounded-full"
-          style={{ backgroundColor: color + "15", color }}
+          className="text-xs font-semibold px-2.5 py-1 rounded-full"
+          style={{ backgroundColor: color + "08", color }}
         >
           {typeLabels[company.type]}
         </span>
       </div>
 
-      <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-3">
+      <p className="text-sm text-[var(--color-text-secondary)] leading-[1.6] mb-3">
         {company.description}
       </p>
 
@@ -57,11 +59,11 @@ function CompanyCard({ company, index, inView }: { company: Company; index: numb
               <div
                 key={i}
                 className="w-4 h-4 rounded-full border border-[var(--color-bg-card)]"
-                style={{ backgroundColor: color + "40" }}
+                style={{ backgroundColor: color + "20" }}
               />
             ))}
           </div>
-          <span className="text-xs text-[var(--color-text-muted)]">
+          <span className="text-sm text-[var(--color-text-muted)]">
             {company.agents} agents
           </span>
         </div>
@@ -82,7 +84,7 @@ function CompanyCard({ company, index, inView }: { company: Company; index: numb
         animate={{ opacity: hovered ? 1 : 0 }}
         className="absolute inset-0 rounded-xl pointer-events-none"
         style={{
-          boxShadow: `0 0 40px ${color}10, inset 0 0 40px ${color}05`,
+          boxShadow: `0 0 40px ${color}08, inset 0 0 40px ${color}04`,
         }}
       />
     </motion.a>
@@ -90,18 +92,17 @@ function CompanyCard({ company, index, inView }: { company: Company; index: numb
 }
 
 export function EcosystemPreview() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section id="ecosystem" className="py-24 sm:py-32 relative">
-      {/* Background accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-accent-indigo)]/[0.02] to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 relative" ref={ref}>
+      <div className="max-w-7xl mx-auto px-6 relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -119,8 +120,9 @@ export function EcosystemPreview() {
 
         {/* Type legend */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.3 }}
           className="flex flex-wrap justify-center gap-4 mb-10"
         >
@@ -138,27 +140,23 @@ export function EcosystemPreview() {
         </motion.div>
 
         {/* Company grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5">
           {companies.map((company, i) => (
-            <CompanyCard
-              key={company.name}
-              company={company}
-              index={i}
-              inView={inView}
-            />
+            <CompanyCard key={company.name} company={company} index={i} />
           ))}
         </div>
 
         {/* CTA to full ecosystem page */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.6 }}
           className="text-center mt-12"
         >
           <Link
             href="/ecosystem"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[var(--color-border)] text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[var(--color-border)] text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:border-[var(--color-border-hover)] transition-colors focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             Explore the full ecosystem map
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">

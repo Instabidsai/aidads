@@ -1,19 +1,18 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { stats } from "@/lib/data";
 
 export function NumbersSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section id="numbers" className="py-24 sm:py-32 relative">
-      <div className="max-w-5xl mx-auto px-6" ref={ref}>
+      <div className="max-w-5xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -25,29 +24,36 @@ export function NumbersSection() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 * i }}
-              className="gradient-border p-6 text-center"
+              initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.85 }}
+              whileInView={prefersReducedMotion ? {} : { opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.6,
+                delay: 0.1 * i,
+                type: "spring",
+                stiffness: 120,
+                damping: 14,
+              }}
+              className="card-stat p-8 sm:p-10 text-center"
             >
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-br from-[var(--color-text)] to-[var(--color-text-secondary)] bg-clip-text text-transparent mb-2">
+              <div className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-br from-[var(--color-text)] to-[var(--color-text-secondary)] bg-clip-text text-transparent mb-3 [font-variant-numeric:tabular-nums]">
                 {stat.value}
               </div>
-              <div className="text-sm text-[var(--color-text-muted)]">
+              <div className="text-sm font-medium text-[var(--color-text-muted)]">
                 {stat.label}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Extra detail */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.6 }}
           className="mt-12 text-center"
         >

@@ -68,7 +68,7 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Gradient border card */
+/* Gradient border card — featured cards only (services) */
 .gradient-border {
   position: relative;
   border-radius: 12px;
@@ -84,6 +84,34 @@ body {
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   pointer-events: none;
+}
+
+/* Card variants — depth hierarchy */
+.card {
+  position: relative;
+  border-radius: 12px;
+  background: var(--color-bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  background: var(--color-bg-elevated);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.card-stat {
+  position: relative;
+  border-radius: 12px;
+  background: var(--color-bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card-stat:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
 }
 
 /* Glow effects */

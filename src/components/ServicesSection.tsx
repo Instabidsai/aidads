@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 const services = [
   {
@@ -19,7 +18,7 @@ const services = [
     ctaHref: "https://affixed.ai",
     color: "#6366f1",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
         <path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
@@ -39,7 +38,7 @@ const services = [
     ctaHref: "/partnerships",
     color: "#f59e0b",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zm14 10v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
@@ -59,7 +58,7 @@ const services = [
     ctaHref: "https://myjarvisbrain.com",
     color: "#06b6d4",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
         <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
@@ -67,17 +66,17 @@ const services = [
 ];
 
 export function ServicesSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section id="services" className="py-24 sm:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-accent-cyan)]/[0.02] to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-6 relative" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6 relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -89,30 +88,34 @@ export function ServicesSection() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 * i }}
-              className="gradient-border p-6 flex flex-col"
+              initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.95 }}
+              whileInView={prefersReducedMotion ? {} : { opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.1 * i, ease: "easeOut" }}
+              className="gradient-border p-8 flex flex-col"
             >
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                style={{ backgroundColor: service.color + "15", color: service.color }}
+                style={{ backgroundColor: service.color + "08", color: service.color }}
               >
                 {service.icon}
               </div>
 
-              <h3 className="font-bold text-lg text-[var(--color-text)] mb-1">
+              <h3 className="font-bold text-xl text-[var(--color-text)] mb-1">
                 {service.title}
               </h3>
-              <span className="text-xs font-medium mb-4" style={{ color: service.color }}>
+              <span
+                className="text-xs font-semibold mb-4 uppercase tracking-wide"
+                style={{ color: service.color }}
+              >
                 {service.subtitle}
               </span>
 
-              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-6">
+              <p className="text-sm text-[var(--color-text-secondary)] leading-[1.6] mb-6">
                 {service.description}
               </p>
 
@@ -129,11 +132,12 @@ export function ServicesSection() {
                 href={service.ctaHref}
                 target={service.ctaHref.startsWith("http") ? "_blank" : undefined}
                 rel={service.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="text-sm font-medium px-4 py-2.5 rounded-lg border text-center transition-all hover:brightness-110"
+                className="text-sm font-medium px-4 py-2.5 rounded-lg border text-center transition-[filter,background-color] hover:brightness-110 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2"
                 style={{
                   borderColor: service.color + "30",
                   color: service.color,
                   backgroundColor: service.color + "08",
+                  outlineColor: service.color,
                 }}
               >
                 {service.cta}

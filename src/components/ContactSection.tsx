@@ -1,20 +1,19 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 export function ContactSection() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section id="contact" className="py-24 sm:py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-accent-indigo)]/[0.03]" />
 
-      <div className="max-w-3xl mx-auto px-6 text-center relative" ref={ref}>
+      <div className="max-w-3xl mx-auto px-6 text-center relative">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
@@ -28,20 +27,21 @@ export function ContactSection() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
           className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
         >
           <a
             href="mailto:justin@aidads.com"
-            className="px-8 py-3.5 rounded-lg bg-[var(--color-accent-indigo)] text-white font-medium hover:bg-[var(--color-accent-indigo)]/80 transition-all hover:shadow-lg hover:shadow-[var(--color-accent-indigo)]/20 text-sm"
+            className="px-8 py-3.5 rounded-lg bg-[var(--color-accent-indigo)] text-white font-medium hover:bg-[var(--color-accent-indigo)]/80 transition-[background-color,box-shadow] hover:shadow-lg hover:shadow-[var(--color-accent-indigo)]/10 text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             justin@aidads.com
           </a>
           <a
             href="tel:+15615587020"
-            className="px-8 py-3.5 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-elevated)] transition-all text-sm"
+            className="px-8 py-3.5 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-elevated)] transition-[border-color,background-color] text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             (561) 558-7020
           </a>
@@ -49,7 +49,7 @@ export function ContactSection() {
             href="https://linkedin.com/in/justinthompson"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-3.5 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-elevated)] transition-all text-sm"
+            className="px-8 py-3.5 rounded-lg border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-bg-elevated)] transition-[border-color,background-color] text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             Connect on LinkedIn
           </a>
@@ -57,16 +57,17 @@ export function ContactSection() {
 
         {/* Save to Contacts — works on iOS and Android */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mb-12"
         >
           <a
             href="/api/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-gradient-to-r from-[var(--color-accent-indigo)] to-[var(--color-accent-cyan)] text-white font-medium hover:opacity-90 transition-all text-sm shadow-lg shadow-[var(--color-accent-indigo)]/20"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg bg-gradient-to-r from-[var(--color-accent-indigo)] to-[var(--color-accent-cyan)] text-white font-medium hover:opacity-90 transition-opacity text-sm shadow-lg shadow-[var(--color-accent-indigo)]/20 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
               <circle cx="9" cy="7" r="4" />
               <line x1="19" y1="8" x2="19" y2="14" />
@@ -80,8 +81,9 @@ export function ContactSection() {
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          whileInView={prefersReducedMotion ? {} : { opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ delay: 0.4 }}
           className="text-sm text-[var(--color-text-muted)]"
         >
