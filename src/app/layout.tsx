@@ -11,6 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/icon",
+  },
   title: "Justin Thompson — AI Venture Factory | aidads.com",
   description:
     "17 AI-powered companies. 91 autonomous agents. One operator. Justin Thompson builds and operates AI-run businesses from a single laptop.",
