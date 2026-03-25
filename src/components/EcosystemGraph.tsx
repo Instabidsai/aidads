@@ -101,9 +101,6 @@ export function EcosystemGraph({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = dimensions.w;
-    canvas.height = dimensions.h;
-
     let animId: number;
     const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
     canvas.width = dimensions.w * dpr;

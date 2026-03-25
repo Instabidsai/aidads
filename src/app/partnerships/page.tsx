@@ -187,7 +187,7 @@ export default function PartnershipsPage() {
                 const form = e.target as HTMLFormElement;
                 const data = new FormData(form);
                 // In production, this would POST to an API
-                const mailto = `mailto:justin@affixed.ai?subject=Partnership Application: ${data.get("name")}&body=Name: ${data.get("name")}%0AExpertise: ${data.get("expertise")}%0ANetwork Size: ${data.get("network")}%0A%0A${data.get("pitch")}`;
+                const mailto = `mailto:justin@aidads.com?subject=Partnership Application: ${data.get("name")}&body=Name: ${data.get("name")}%0AExpertise: ${data.get("expertise")}%0ANetwork Size: ${data.get("network")}%0A%0A${data.get("pitch")}`;
                 window.open(mailto);
                 setFormSent(true);
               }}

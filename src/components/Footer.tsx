@@ -40,11 +40,17 @@ export function Footer() {
               Connect
             </h4>
             <div className="flex flex-col gap-2">
-              <a href="mailto:justin@affixed.ai" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors">
-                justin@affixed.ai
+              <a href="mailto:justin@aidads.com" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors">
+                justin@aidads.com
+              </a>
+              <a href="tel:+15615587020" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors">
+                (561) 558-7020
               </a>
               <a href="https://linkedin.com/in/justinthompson" target="_blank" rel="noopener noreferrer" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors">
                 LinkedIn
+              </a>
+              <a href="/api/contact" className="text-sm text-[var(--color-accent-indigo)] hover:text-[var(--color-accent-cyan)] transition-colors">
+                Save to Contacts
               </a>
             </div>
           </div>

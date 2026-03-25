@@ -17,7 +17,7 @@ const services = [
     ],
     cta: "Learn More",
     ctaHref: "https://affixed.ai",
-    color: "var(--color-accent-indigo)",
+    color: "#6366f1",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" strokeLinecap="round" strokeLinejoin="round" />
@@ -37,7 +37,7 @@ const services = [
     ],
     cta: "Apply Now",
     ctaHref: "/partnerships",
-    color: "var(--color-accent-amber)",
+    color: "#f59e0b",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zm14 10v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -57,7 +57,7 @@ const services = [
     ],
     cta: "Join the Waitlist",
     ctaHref: "https://myjarvisbrain.com",
-    color: "var(--color-accent-cyan)",
+    color: "#06b6d4",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M13 10V3L4 14h7v7l9-11h-7z" strokeLinecap="round" strokeLinejoin="round" />
