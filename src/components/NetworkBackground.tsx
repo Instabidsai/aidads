@@ -13,7 +13,8 @@ interface Node {
   pulseSpeed: number;
 }
 
-const COLORS = ["#6366f1", "#06b6d4", "#f59e0b", "#10b981"];
+// Single color family — indigo shades only for cohesion
+const COLORS = ["#6366f1", "#4f46e5", "#4338ca", "#818cf8"];
 
 export function NetworkBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -21,6 +22,9 @@ export function NetworkBackground() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    // Respect reduced motion
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -30,49 +34,53 @@ export function NetworkBackground() {
 
     function resize() {
       if (!canvas) return;
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx!.scale(dpr, dpr);
     }
 
     function init() {
       resize();
-      const count = Math.min(30, Math.floor(window.innerWidth / 50));
+      const count = Math.min(25, Math.floor(window.innerWidth / 60));
       nodes = Array.from({ length: count }, () => ({
-        x: Math.random() * (canvas?.width ?? 1000),
-        y: Math.random() * (canvas?.height ?? 800),
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 2 + 1.5,
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        vx: prefersReduced ? 0 : (Math.random() - 0.5) * 0.2,
+        vy: prefersReduced ? 0 : (Math.random() - 0.5) * 0.2,
+        radius: Math.random() * 1.5 + 1,
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
         pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: 0.01 + Math.random() * 0.02,
+        pulseSpeed: prefersReduced ? 0 : 0.008 + Math.random() * 0.012,
       }));
     }
 
     function draw() {
-      if (!ctx || !canvas) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (!ctx) return;
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      ctx.clearRect(0, 0, w, h);
 
-      // Update and draw connections
       for (let i = 0; i < nodes.length; i++) {
         const a = nodes[i];
         a.x += a.vx;
         a.y += a.vy;
         a.pulse += a.pulseSpeed;
 
-        // Bounce off edges
-        if (a.x < 0 || a.x > canvas.width) a.vx *= -1;
-        if (a.y < 0 || a.y > canvas.height) a.vy *= -1;
+        if (a.x < 0 || a.x > w) a.vx *= -1;
+        if (a.y < 0 || a.y > h) a.vy *= -1;
 
         for (let j = i + 1; j < nodes.length; j++) {
           const b = nodes[j];
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          const maxDist = 200;
+          const maxDist = 180;
 
           if (dist < maxDist) {
-            const alpha = (1 - dist / maxDist) * 0.15;
+            const alpha = (1 - dist / maxDist) * 0.1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -83,26 +91,24 @@ export function NetworkBackground() {
         }
       }
 
-      // Draw nodes
       for (const node of nodes) {
-        const pulseRadius = node.radius + Math.sin(node.pulse) * 0.8;
+        const pulseRadius = node.radius + Math.sin(node.pulse) * 0.5;
 
-        // Glow
+        // Subtle glow
         ctx.beginPath();
-        ctx.arc(node.x, node.y, pulseRadius * 4, 0, Math.PI * 2);
+        ctx.arc(node.x, node.y, pulseRadius * 3, 0, Math.PI * 2);
         const glow = ctx.createRadialGradient(
           node.x, node.y, 0,
-          node.x, node.y, pulseRadius * 4
+          node.x, node.y, pulseRadius * 3
         );
-        glow.addColorStop(0, node.color + "20");
+        glow.addColorStop(0, node.color + "12");
         glow.addColorStop(1, "transparent");
         ctx.fillStyle = glow;
         ctx.fill();
 
-        // Core
         ctx.beginPath();
         ctx.arc(node.x, node.y, pulseRadius, 0, Math.PI * 2);
-        ctx.fillStyle = node.color;
+        ctx.fillStyle = node.color + "60";
         ctx.fill();
       }
 
@@ -122,8 +128,8 @@ export function NetworkBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 opacity-60"
-      aria-hidden
+      className="absolute inset-0 opacity-30"
+      aria-hidden="true"
     />
   );
 }
