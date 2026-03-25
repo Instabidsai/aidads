@@ -25,7 +25,7 @@ export function StorySection() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section id="story" className="py-24 sm:py-32 relative">
+    <section id="story" className="py-24 sm:py-32 relative border-t border-[var(--color-border)]/10">
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ export function StorySection() {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <p className="text-sm font-medium text-[var(--color-accent-indigo)] mb-3 tracking-wide uppercase">
+          <p className="text-xs font-medium text-[var(--color-text-muted)] mb-3 tracking-widest uppercase">
             The Story
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
@@ -48,7 +48,7 @@ export function StorySection() {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--color-accent-indigo)] via-[var(--color-accent-cyan)] to-[var(--color-accent-green)]" />
+          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--color-border-hover)] to-[var(--color-border)]" />
 
           <div className="space-y-12">
             {timeline.map((item, i) => (
@@ -61,10 +61,10 @@ export function StorySection() {
                 className="relative pl-14 sm:pl-20"
               >
                 {/* Dot */}
-                <div className="absolute left-2.5 sm:left-6.5 top-1 w-3 h-3 rounded-full bg-[var(--color-accent-indigo)] ring-4 ring-[var(--color-bg)]" />
+                <div className="absolute left-2.5 sm:left-6.5 top-1 w-3 h-3 rounded-full bg-[var(--color-text-muted)] ring-4 ring-[var(--color-bg)]" />
 
                 <div className="card p-6">
-                  <span className="text-xs font-semibold text-[var(--color-accent-indigo)] uppercase tracking-wider">
+                  <span className="text-xs font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">
                     {item.label}
                   </span>
                   <p className="mt-2 text-[var(--color-text-secondary)] leading-[1.7]">

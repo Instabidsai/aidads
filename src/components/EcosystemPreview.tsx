@@ -95,7 +95,7 @@ export function EcosystemPreview() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section id="ecosystem" className="py-24 sm:py-32 relative">
+    <section id="ecosystem" className="py-24 sm:py-32 relative border-t border-[var(--color-border)]/10 bg-[var(--color-bg-elevated)]/30">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--color-accent-indigo)]/[0.02] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 relative">
@@ -106,7 +106,7 @@ export function EcosystemPreview() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-[var(--color-accent-cyan)] mb-3 tracking-wide uppercase">
+          <p className="text-xs font-medium text-[var(--color-text-muted)] mb-3 tracking-widest uppercase">
             The Ecosystem
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">

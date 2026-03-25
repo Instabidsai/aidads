@@ -34,7 +34,7 @@ export function PartnershipsSection() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section id="partnerships" className="py-24 sm:py-32 relative">
+    <section id="partnerships" className="py-24 sm:py-32 relative border-t border-[var(--color-border)]/10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left — explanation */}
@@ -44,7 +44,7 @@ export function PartnershipsSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-sm font-medium text-[var(--color-accent-amber)] mb-3 tracking-wide uppercase">
+            <p className="text-xs font-medium text-[var(--color-text-muted)] mb-3 tracking-widest uppercase">
               50/50 Partnerships
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">

@@ -32,29 +32,26 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center">
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--color-accent-indigo)] to-[var(--color-accent-cyan)] flex items-center justify-center text-white font-bold text-sm">
             JT
           </div>
-          <span className="font-semibold text-[var(--color-text)] text-sm tracking-tight hidden sm:block">
-            aidads.com
-          </span>
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
+              className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
             >
               {link.label}
             </a>
           ))}
           <a
             href="/#contact"
-            className="text-sm px-4 py-2 rounded-lg bg-[var(--color-accent-indigo)] text-white hover:bg-[var(--color-accent-indigo)]/80 transition-colors"
+            className="text-sm px-5 py-2 rounded-lg bg-[var(--color-accent-indigo)] text-white font-medium transition-shadow duration-200 hover:shadow-lg hover:shadow-[var(--color-accent-indigo)]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
             Let&apos;s Talk
           </a>

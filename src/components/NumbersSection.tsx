@@ -7,7 +7,7 @@ export function NumbersSection() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section id="numbers" className="py-24 sm:py-32 relative">
+    <section id="numbers" className="py-24 sm:py-32 relative border-t border-[var(--color-border)]/10">
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
@@ -16,7 +16,7 @@ export function NumbersSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <p className="text-sm font-medium text-[var(--color-accent-green)] mb-3 tracking-wide uppercase">
+          <p className="text-xs font-medium text-[var(--color-text-muted)] mb-3 tracking-widest uppercase">
             The Numbers
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">

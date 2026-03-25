@@ -6,7 +6,7 @@ export function ContactSection() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section id="contact" className="py-24 sm:py-32 relative">
+    <section id="contact" className="py-24 sm:py-32 relative border-t border-[var(--color-border)]/10 bg-[var(--color-bg-elevated)]/30">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[var(--color-accent-indigo)]/[0.03]" />
 
       <div className="max-w-3xl mx-auto px-6 text-center relative">
@@ -16,6 +16,9 @@ export function ContactSection() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
+          <p className="text-xs font-medium text-[var(--color-text-muted)] mb-3 tracking-widest uppercase">
+            Get in Touch
+          </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
             Let&apos;s build something together
           </h2>
