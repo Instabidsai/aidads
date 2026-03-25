@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg)]">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+    <footer className="border-t border-[var(--color-border)]/10 bg-[var(--color-bg)]">
+      <div className="max-w-7xl mx-auto px-6 py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
@@ -55,7 +55,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-[var(--color-border)] mt-8 pt-8 text-center text-xs text-[var(--color-text-muted)]">
+        <div className="border-t border-[var(--color-border)]/10 mt-8 pt-8 text-center text-[10px] text-[var(--color-text-muted)]">
           &copy; {new Date().getFullYear()} Justin Thompson. Built with AI.
           Operated by one person.
         </div>

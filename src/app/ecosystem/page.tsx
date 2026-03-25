@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   companies,
   connections,
@@ -15,17 +15,22 @@ import { EcosystemGraph } from "@/components/EcosystemGraph";
 export default function EcosystemPage() {
   const [selected, setSelected] = useState<Company | null>(null);
   const [filter, setFilter] = useState<CompanyType | "all">("all");
+  const prefersReducedMotion = useReducedMotion();
 
   const filtered =
     filter === "all"
       ? companies
       : companies.filter((c) => c.type === filter);
 
+  const motionProps = prefersReducedMotion
+    ? { initial: false, animate: { opacity: 1 } }
+    : {};
+
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
@@ -40,10 +45,10 @@ export default function EcosystemPage() {
 
         {/* Interactive graph */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={prefersReducedMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="gradient-border p-4 mb-12"
+          transition={prefersReducedMotion ? { duration: 0 } : { delay: 0.2 }}
+          className="card p-4 mb-12"
         >
           <EcosystemGraph
             companies={companies}
@@ -57,7 +62,7 @@ export default function EcosystemPage() {
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           <button
             onClick={() => setFilter("all")}
-            className={`text-xs px-4 py-2 rounded-full border transition-all ${
+            className={`text-xs px-4 py-2 rounded-full border transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)] ${
               filter === "all"
                 ? "border-[var(--color-accent-indigo)] text-[var(--color-accent-indigo)] bg-[var(--color-accent-indigo)]/10"
                 : "border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-hover)]"
@@ -71,7 +76,7 @@ export default function EcosystemPage() {
               <button
                 key={type}
                 onClick={() => setFilter(type)}
-                className={`text-xs px-4 py-2 rounded-full border transition-all ${
+                className={`text-xs px-4 py-2 rounded-full border transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)] ${
                   filter === type
                     ? `border-current bg-current/10`
                     : "border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-[var(--color-border-hover)]"
@@ -92,14 +97,14 @@ export default function EcosystemPage() {
               return (
                 <motion.a
                   key={company.name}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  layout={!prefersReducedMotion}
+                  initial={prefersReducedMotion ? false : { opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
+                  exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, scale: 0.95 }}
                   href={`https://${company.domain}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="gradient-border p-5 group block"
+                  className="card p-5 group block focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
                   onMouseEnter={() => setSelected(company)}
                   onMouseLeave={() => setSelected(null)}
                 >
@@ -153,10 +158,10 @@ export default function EcosystemPage() {
 
         {/* How they connect */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="mt-16 gradient-border p-8"
+          transition={prefersReducedMotion ? { duration: 0 } : { delay: 0.4 }}
+          className="mt-16 card p-8"
         >
           <h2 className="text-xl font-bold mb-6">How They Connect</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

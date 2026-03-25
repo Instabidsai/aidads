@@ -44,7 +44,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+              className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors hover:underline underline-offset-4 decoration-[var(--color-text-muted)]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
             >
               {link.label}
             </a>
@@ -88,7 +88,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] py-2"
+                  className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] py-3 min-h-[44px] flex items-center"
                 >
                   {link.label}
                 </a>
@@ -96,7 +96,7 @@ export function Navbar() {
               <a
                 href="/#contact"
                 onClick={() => setMobileOpen(false)}
-                className="text-sm px-4 py-2 rounded-lg bg-[var(--color-accent-indigo)] text-white text-center mt-2"
+                className="text-sm px-4 py-3 min-h-[44px] flex items-center justify-center rounded-lg bg-[var(--color-accent-indigo)] text-white text-center mt-2"
               >
                 Let&apos;s Talk
               </a>

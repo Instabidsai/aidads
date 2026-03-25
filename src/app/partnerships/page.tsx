@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 
 const activePartnerships = [
@@ -35,13 +35,14 @@ const activePartnerships = [
 
 export default function PartnershipsPage() {
   const [formSent, setFormSent] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <div className="min-h-screen pt-20">
       <div className="max-w-5xl mx-auto px-6 py-12">
         {/* Hero */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
@@ -64,10 +65,10 @@ export default function PartnershipsPage() {
 
         {/* How it works */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="gradient-border p-8 mb-16"
+          transition={prefersReducedMotion ? { duration: 0 } : { delay: 0.1 }}
+          className="card p-8 mb-16"
         >
           <h2 className="text-xl font-bold mb-6">How It Works</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -108,9 +109,9 @@ export default function PartnershipsPage() {
 
         {/* Active partnerships */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={prefersReducedMotion ? { duration: 0 } : { delay: 0.2 }}
           className="mb-16"
         >
           <h2 className="text-2xl font-bold mb-8">Active Partnerships</h2>
@@ -118,10 +119,10 @@ export default function PartnershipsPage() {
             {activePartnerships.map((p, i) => (
               <motion.div
                 key={p.name}
-                initial={{ opacity: 0, x: -20 }}
+                initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 * i + 0.3 }}
-                className="gradient-border p-6"
+                transition={prefersReducedMotion ? { duration: 0 } : { delay: 0.1 * i + 0.3 }}
+                className="card p-6"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
                   <div>
@@ -130,7 +131,7 @@ export default function PartnershipsPage() {
                       href={`https://${p.domain}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-[var(--color-accent-indigo)] hover:underline"
+                      className="text-sm text-[var(--color-accent-indigo)] hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
                     >
                       {p.domain}
                     </a>
@@ -157,11 +158,11 @@ export default function PartnershipsPage() {
 
         {/* Application form */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          transition={prefersReducedMotion ? { duration: 0 } : { delay: 0.4 }}
           id="apply"
-          className="gradient-border p-8"
+          className="card p-8"
         >
           <h2 className="text-2xl font-bold mb-2">Apply for a Partnership</h2>
           <p className="text-sm text-[var(--color-text-secondary)] mb-8">
@@ -199,7 +200,7 @@ export default function PartnershipsPage() {
                   <input
                     name="name"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent-amber)] transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent-amber)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent-amber)]/50 focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--color-bg)] transition-colors"
                     placeholder="Jane Smith"
                   />
                 </div>
@@ -208,7 +209,7 @@ export default function PartnershipsPage() {
                   <input
                     name="expertise"
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent-amber)] transition-colors"
+                    className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent-amber)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent-amber)]/50 focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--color-bg)] transition-colors"
                     placeholder="Real estate, healthcare, fitness..."
                   />
                 </div>
@@ -219,7 +220,7 @@ export default function PartnershipsPage() {
                 </label>
                 <input
                   name="network"
-                  className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent-amber)] transition-colors"
+                  className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent-amber)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent-amber)]/50 focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--color-bg)] transition-colors"
                   placeholder="500+ contacts, run a community, have a mailing list..."
                 />
               </div>
@@ -231,13 +232,13 @@ export default function PartnershipsPage() {
                   name="pitch"
                   required
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent-amber)] transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-sm text-[var(--color-text)] focus:outline-none focus:border-[var(--color-accent-amber)] focus-visible:ring-2 focus-visible:ring-[var(--color-accent-amber)]/50 focus-visible:ring-offset-1 focus-visible:ring-offset-[var(--color-bg)] transition-colors resize-none"
                   placeholder="Describe the problem you see in your industry and what an AI product could solve..."
                 />
               </div>
               <button
                 type="submit"
-                className="px-8 py-3 rounded-lg bg-[var(--color-accent-amber)] text-black font-medium hover:bg-[var(--color-accent-amber)]/80 transition-all text-sm"
+                className="px-8 py-3 rounded-lg bg-[var(--color-accent-amber)] text-black font-medium hover:bg-[var(--color-accent-amber)]/80 transition-all text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-amber)]"
               >
                 Submit Application
               </button>
