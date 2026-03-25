@@ -5,11 +5,8 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { href: "/#story", label: "Story" },
-  { href: "/#ecosystem", label: "Ecosystem" },
-  { href: "/#partnerships", label: "Partnerships" },
-  { href: "/#services", label: "Services" },
-  { href: "/#numbers", label: "Numbers" },
+  { href: "/ecosystem", label: "Ecosystem" },
+  { href: "/partnerships", label: "Partnerships" },
   { href: "/#contact", label: "Contact" },
 ];
 

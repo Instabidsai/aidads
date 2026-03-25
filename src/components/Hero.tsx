@@ -8,95 +8,67 @@ export function Hero() {
   const { scrollY } = useScroll();
   const bgY = useTransform(scrollY, [0, 600], [0, 120]);
 
-  const fadeUp = (delay: number) =>
-    prefersReducedMotion
-      ? {}
-      : {
-          initial: { opacity: 0, y: 24 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.7, delay, ease: [0.25, 0.46, 0.45, 0.94] as const },
-        };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0">
-      {/* Parallax network background */}
       <motion.div style={prefersReducedMotion ? {} : { y: bgY }} className="absolute inset-0">
         <NetworkBackground />
       </motion.div>
 
-      {/* Radial gradient overlay — tighter, more layered */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_800px_600px_at_center,transparent_10%,var(--color-bg)_70%)]" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-bg)]" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.div {...fadeUp(0)}>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-[var(--color-border)]/40 bg-[var(--color-bg-elevated)]/20 backdrop-blur-md mb-8 opacity-70">
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-text-secondary)] animate-pulse opacity-50" />
-            <span className="text-[11px] font-medium tracking-[-0.005em] text-[var(--color-text-muted)]">
-              17 companies running autonomously
-            </span>
-          </div>
-        </motion.div>
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+        {/* The anchor — everyone understands this */}
+        <motion.p
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+          className="text-[var(--color-text-secondary)] text-lg sm:text-xl mb-8 leading-relaxed max-w-2xl mx-auto [text-wrap:pretty]"
+        >
+          I used to manage 12 crews and 2,000 jobs
+          <br className="hidden sm:block" />
+          installing Christmas lights across South Florida.
+        </motion.p>
 
+        {/* The pivot */}
         <motion.h1
-          {...(prefersReducedMotion
-            ? {}
-            : {
-                initial: { opacity: 0, scale: 0.96 },
-                animate: { opacity: 1, scale: 1 },
-                transition: {
-                  duration: 0.9,
-                  delay: 0.1,
-                  ease: [0.16, 1, 0.3, 1],
-                },
-              })}
+          initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.96 }}
+          animate={prefersReducedMotion ? {} : { opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black tracking-[-0.04em] leading-[0.95] mb-8 md:mb-10 [text-wrap:balance]"
         >
-          I build and operate{" "}
+          Now I manage{" "}
           <span className="bg-gradient-to-r from-[var(--color-text)] via-[var(--color-text)] to-[var(--color-accent-indigo)] bg-clip-text text-transparent shimmer-text">
-            AI-run companies
+            91 AI agents
           </span>
         </motion.h1>
 
+        {/* The proof */}
         <motion.p
-          {...fadeUp(0.3)}
-          className="text-lg sm:text-xl md:text-2xl font-normal tracking-[-0.01em] text-[var(--color-text-secondary)] max-w-2xl mx-auto mb-12 md:mb-16 leading-[1.6] [text-wrap:pretty]"
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+          className="text-[var(--color-text-muted)] text-base sm:text-lg mb-14 md:mb-16 max-w-xl mx-auto leading-relaxed"
         >
-          17 businesses. 91 autonomous agents. $3K infrastructure.
-          <br className="hidden sm:block" /> One person running it all.
+          Same brain. Different tools.
+          <br />
+          17 companies. One operator. $3K/month to run it all.
         </motion.p>
 
+        {/* One CTA */}
         <motion.div
-          {...(prefersReducedMotion
-            ? {}
-            : {
-                initial: { opacity: 0, y: 24 },
-                animate: { opacity: 1, y: 0 },
-                transition: {
-                  duration: 0.7,
-                  delay: 0.6,
-                  ease: [0.16, 1, 0.3, 1],
-                },
-              })}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
         >
           <motion.a
-            href="#ecosystem"
+            href="#contact"
             whileHover={prefersReducedMotion ? {} : { scale: 1.03, y: -1 }}
             whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-[var(--color-accent-indigo)] text-white font-medium text-center transition-shadow duration-200 hover:shadow-lg hover:shadow-[var(--color-accent-indigo)]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
+            className="inline-block px-10 py-4 rounded-lg bg-[var(--color-accent-indigo)] text-white font-medium text-center transition-shadow duration-200 hover:shadow-lg hover:shadow-[var(--color-accent-indigo)]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
           >
-            See the Ecosystem
-          </motion.a>
-          <motion.a
-            href="#contact"
-            whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
-            whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 15 }}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-lg border border-[var(--color-border)]/50 text-[var(--color-text-secondary)] text-center transition-colors duration-200 hover:border-[var(--color-border)] hover:text-[var(--color-text)] hover:bg-[var(--color-bg-elevated)]/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-indigo)]"
-          >
-            Let&apos;s Build Together
+            Let&apos;s Talk
           </motion.a>
         </motion.div>
       </div>
