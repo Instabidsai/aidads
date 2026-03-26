@@ -1,18 +1,16 @@
 import { Hero } from "@/components/Hero";
-import { StorySection } from "@/components/StorySection";
-import { NumbersSection } from "@/components/NumbersSection";
-import { EcosystemPreview } from "@/components/EcosystemPreview";
-import { PartnershipsSection } from "@/components/PartnershipsSection";
+import { BeforeAfter } from "@/components/BeforeAfter";
+import { FeaturedCompanies } from "@/components/FeaturedCompanies";
+import { PartnershipPitch } from "@/components/PartnershipPitch";
 import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <NumbersSection />
-      <StorySection />
-      <EcosystemPreview />
-      <PartnershipsSection />
+      <BeforeAfter />
+      <FeaturedCompanies />
+      <PartnershipPitch />
       <ContactSection />
     </>
   );

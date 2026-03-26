@@ -27,7 +27,6 @@ export function PartnershipPitch() {
             Already doing this with a medical billing expert, a fitness coach,
             and peptide researchers. Three partnerships live and generating revenue.
           </p>
-
           <Link
             href="/partnerships"
             className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] transition-colors"
