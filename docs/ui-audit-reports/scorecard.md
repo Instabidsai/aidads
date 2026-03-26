@@ -1,14 +1,9 @@
-# aidads.com UI Upgrade Scorecard
-Reference: linear.app
+# AiDads.com UI Upgrade Scorecard
+Reference: linear.app (from MANIFEST.md)
+Scoring: SCORING-RUBRIC.md checkboxes
 
-| Cycle | Gap Targeted | Before | After | Score vs Ref | Files Changed |
-|-------|-------------|--------|-------|-------------|---------------|
-| 0 | Baseline | - | - | 5.5/10 | - |
-| 1 | Hero typography, color restraint, motion, a11y | 5.5 | 6.5 | 6.5/10 | 7 |
-| 2 | Card hierarchy, typography scale, motion variety, a11y | 6.5 | 7.2 | 7.2/10 | 8 |
-| 3 | Unified labels, nav refinement, dark bg layering | 7.2 | 7.6 | 7.6/10 | 8 |
-| 4 | Interactive states, footer polish, subpage alignment | 7.6 | 7.9 | 7.9/10 | 5 |
-| 5 | Mobile layout, animation polish, final sweep | 7.9 | 8.1 | 8.1/10 | 10 |
-| 6 | Favicon, card breathing, badge subtlety, heading weight | 8.1 | 8.2 | 8.2/10 | 5 |
-
-**STOP CONDITION MET**: Score plateau (8.1 → 8.2, +0.1 delta). Remaining gaps are content (photos, video, testimonials), not code.
+| Cycle | Phase | Gap | Score | Files | Commit |
+|-------|-------|-----|-------|-------|--------|
+| 0 | Baseline (visual) | Only 5 of 14 components wired | 3.0 | - | - |
+| 0 | Baseline (code) | CSS/tokens/animations all exist | 7.0 (hidden) | - | - |
+| 1 | Restructure | Wired NumbersSection, StorySection, EcosystemPreview, PartnershipsSection | **7.2** | page.tsx | d3eb4ae |
