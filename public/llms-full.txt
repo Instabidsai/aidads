@@ -1,0 +1,64 @@
+# AiDads — aidads.com (Full Details)
+
+Justin Brown's personal site — showcases 17 AI companies and the venture factory model.
+
+## Overview
+
+AiDads is a venture factory operated by Justin Brown. It demonstrates how one person can build and operate multiple AI-powered businesses simultaneously using AI agents as co-CEOs. The operation runs 17 companies with 91 autonomous AI agents from a single laptop on approximately $3K/month of infrastructure.
+
+## The Venture Factory Model
+
+Instead of building one company at a time, the venture factory model leverages AI agents to operate multiple businesses in parallel. Each company has its own team of AI agents that handle development, marketing, customer support, and operations. Justin acts as the sole human operator, setting strategy and making critical decisions while AI agents execute.
+
+## Company Portfolio
+
+### Products (7 companies)
+
+1. **DropClose** (dropclose.ai) — AI sales pipeline that sells for you. 8 agents.
+2. **CallTwin** (calltwin.ai) — AI clone of your voice answers every call. 6 agents. Mobile app coming soon.
+3. **BuiltMonthly** (builtmonthly.com) — AI builds your website fresh every month. 4 agents.
+4. **GetPaid.Video** (getpaid.video) — AI monetization tools for YouTube creators. 3 agents.
+5. **AdzForge** (adzforge.com) — AI ad creative pipeline — URL in, ads out. 4 agents.
+6. **BlitzGTM** (blitzgtm.com) — AI go-to-market engine with 39 built-in tools. 8 agents.
+7. **AffixedAI** (affixed.ai) — AI consulting — we build systems that run your business. 8 agents.
+
+### Platforms (4 companies)
+
+1. **JarvisSDK** (jarvissdk.com) — Agent marketplace — 700+ modules, 328 roles. 6 agents.
+2. **JarvisBrain** (myjarvisbrain.com) — AI co-CEO operating system + Command Center. 8 agents.
+3. **JarvisCRM** (jarviscrm.ai) — AI-powered CRM that builds itself. 5 agents.
+4. **YourFeeds.ai** (yourfeeds.ai) — Intelligence subscriptions for AI agents. 3 agents.
+
+### Partnerships (4 companies)
+
+1. **CodeItRight** (codeitright.ai) — AI medical coding compliance for therapists. Partner: Cathy. 5 agents.
+2. **The Performance Edge** (coachingedge.vip) — AI fitness coaching platform. Partner: Don. 4 agents. Mobile app coming soon.
+3. **PureUSPeptide** (pureuspeptide.com) — Premium research peptides + education. 5 agents.
+4. **ThePeptideAI** (thepeptideai.com) — Peptide inventory + AI consultation. 4 agents.
+
+### Lead Generation (2 companies)
+
+1. **Goliath Roofing** (goliathroofingofflorida.com) — South Florida roofing — 1,000+ page SEO powerhouse. 5 agents.
+2. **TurfGrass Solutions** (turfgrassartificialsolutions.com) — Artificial turf installation — South Florida. 3 agents.
+
+## Key Stats
+
+- 17 companies built
+- 91 AI agents running
+- ~$3K monthly infrastructure
+- 1 operator (Justin Brown)
+
+## Ecosystem Connections
+
+The companies are interconnected. AffixedAI feeds clients into DropClose, CallTwin, and BuiltMonthly. JarvisSDK provides agent modules to multiple companies. JarvisBrain serves as the central AI co-CEO operating system overseeing all companies. BlitzGTM powers go-to-market for the portfolio. YourFeeds.ai supplies intelligence to JarvisBrain.
+
+## Site Pages
+
+- **Home** (https://aidads.com) — Overview of Justin Brown and the venture factory
+- **Ecosystem** (https://aidads.com/ecosystem) — Interactive graph showing all 17 companies and their connections
+- **Partnerships** (https://aidads.com/partnerships) — Details on partnership opportunities and active partnerships
+
+## Contact
+
+- Website: https://aidads.com
+- Email: support@aidads.com

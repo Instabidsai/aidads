@@ -1,0 +1,23 @@
+# AiDads — aidads.com
+
+Justin Brown's personal site — showcases 17 AI companies and the venture factory model.
+
+## What is AiDads?
+
+AiDads is a venture factory operated by Justin Brown. From a single laptop, Justin builds and runs 17 AI-powered companies using 91 autonomous AI agents. The site showcases how one person can build and operate multiple AI-powered businesses simultaneously using AI agents as co-CEOs.
+
+## Companies
+
+The portfolio spans four categories:
+
+- **Products**: DropClose, CallTwin, BuiltMonthly, GetPaid.Video, AdzForge, BlitzGTM, AffixedAI
+- **Platforms**: JarvisSDK, JarvisBrain, JarvisCRM, YourFeeds.ai
+- **Partnerships**: CodeItRight, The Performance Edge, PureUSPeptide, ThePeptideAI
+- **Lead Gen**: Goliath Roofing, TurfGrass Solutions
+
+## Links
+
+- Website: https://aidads.com
+- Ecosystem: https://aidads.com/ecosystem
+- Partnerships: https://aidads.com/partnerships
+- Full details: https://aidads.com/llms-full.txt

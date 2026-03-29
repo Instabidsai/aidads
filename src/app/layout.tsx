@@ -11,32 +11,46 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aidads.com"),
   icons: {
     icon: "/icon",
   },
-  title: "Justin Thompson — AI Venture Factory | aidads.com",
+  title: "Justin Brown — AI Venture Factory | aidads.com",
   description:
-    "17 AI-powered companies. 91 autonomous agents. One operator. Justin Thompson builds and operates AI-run businesses from a single laptop.",
+    "Justin Brown's personal site — showcases 17 AI companies and the venture factory model. 91 autonomous agents. One operator.",
   keywords: [
     "AI venture factory",
     "AI companies",
     "autonomous agents",
     "AI consulting",
-    "Justin Thompson",
+    "Justin Brown",
+    "aidads",
   ],
+  alternates: {
+    canonical: "https://aidads.com",
+  },
   openGraph: {
-    title: "Justin Thompson — AI Venture Factory",
+    title: "Justin Brown — AI Venture Factory",
     description:
-      "17 AI-powered companies. 91 autonomous agents. One operator.",
+      "Justin Brown's personal site — showcases 17 AI companies and the venture factory model.",
     url: "https://aidads.com",
     siteName: "aidads.com",
     type: "website",
+    images: [
+      {
+        url: "https://aidads.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AiDads — Justin Brown's AI Venture Factory",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Justin Thompson — AI Venture Factory",
+    title: "Justin Brown — AI Venture Factory",
     description:
-      "17 AI-powered companies. 91 autonomous agents. One operator.",
+      "Justin Brown's personal site — showcases 17 AI companies and the venture factory model.",
+    images: ["https://aidads.com/og-image.png"],
   },
 };
 
@@ -47,6 +61,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "AiDads",
+              url: "https://aidads.com",
+              description:
+                "Justin Brown's personal site — showcases 17 AI companies and the venture factory model",
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-screen antialiased">
         <div className="noise-overlay" />
         <Navbar />
