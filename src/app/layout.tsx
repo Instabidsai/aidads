@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Justin Brown — AI Venture Factory | aidads.com",
   description:
     "Justin Brown's personal site — showcases 17 AI companies and the venture factory model. 91 autonomous agents. One operator.",
+  authors: [{ name: "Justin Brown", url: "https://aidads.com" }],
   keywords: [
     "AI venture factory",
     "AI companies",
@@ -72,6 +73,45 @@ export default function RootLayout({
               url: "https://aidads.com",
               description:
                 "Justin Brown's personal site — showcases 17 AI companies and the venture factory model",
+              sameAs: [
+                "https://linkedin.com/in/justinthompson",
+                "https://github.com/Instabidsai",
+              ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "AiDads",
+              url: "https://aidads.com",
+              description:
+                "Justin Brown's AI Venture Factory — 17 companies, 91 agents, one operator",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://aidads.com/ecosystem?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Justin Brown",
+              url: "https://aidads.com",
+              jobTitle: "AI Venture Factory Operator",
+              worksFor: {
+                "@type": "Organization",
+                name: "AiDads",
+              },
             }),
           }}
         />

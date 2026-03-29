@@ -1,0 +1,26 @@
+{
+  "name": "AiDads",
+  "description": "Justin Brown's personal site showcasing 17 AI companies built through a venture factory model with 91 autonomous agents",
+  "url": "https://aidads.com",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "AiDads",
+    "url": "https://aidads.com"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "skills": [
+    {
+      "id": "portfolio-overview",
+      "name": "Portfolio Overview",
+      "description": "Browse 17 AI companies and their capabilities in the venture factory ecosystem",
+      "inputModes": ["text"],
+      "outputModes": ["text"]
+    }
+  ],
+  "authentication": {
+    "schemes": ["none"]
+  }
+}
