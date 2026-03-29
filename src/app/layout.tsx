@@ -37,21 +37,12 @@ export const metadata: Metadata = {
     url: "https://aidads.com",
     siteName: "aidads.com",
     type: "website",
-    images: [
-      {
-        url: "https://aidads.com/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "AiDads — Justin Brown's AI Venture Factory",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Justin Brown — AI Venture Factory",
     description:
       "Justin Brown's personal site — showcases 17 AI companies and the venture factory model.",
-    images: ["https://aidads.com/og-image.png"],
   },
 };
 
