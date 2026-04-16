@@ -3,31 +3,22 @@ import type { MetadataRoute } from "next";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      // Traditional search
-      { userAgent: "Googlebot", allow: "/" },
-      { userAgent: "Bingbot", allow: "/" },
-      // AI search/retrieval bots (ALLOW)
-      { userAgent: "OAI-SearchBot", allow: "/" },
-      { userAgent: "ChatGPT-User", allow: "/" },
-      { userAgent: "ClaudeBot", allow: "/" },
-      { userAgent: "claude-web", allow: "/" },
-      { userAgent: "PerplexityBot", allow: "/" },
-      { userAgent: "Applebot", allow: "/" },
-      { userAgent: "Amazonbot", allow: "/" },
-      { userAgent: "YouBot", allow: "/" },
-      { userAgent: "DuckAssistBot", allow: "/" },
-      { userAgent: "MistralAI-User", allow: "/" },
-      // AI training bots (BLOCK)
-      { userAgent: "GPTBot", disallow: "/" },
-      { userAgent: "Google-Extended", disallow: "/" },
-      { userAgent: "anthropic-ai", disallow: "/" },
-      { userAgent: "CCBot", disallow: "/" },
-      { userAgent: "Bytespider", disallow: "/" },
-      { userAgent: "Diffbot", disallow: "/" },
-      { userAgent: "Applebot-Extended", disallow: "/" },
-      { userAgent: "cohere-ai", disallow: "/" },
-      // Default
-      { userAgent: "*", allow: "/" },
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/dashboard"],
+      },
+      // AI crawlers — ALLOW for GEO (AI citation optimization)
+      {
+        userAgent: ["GPTBot", "Google-Extended", "anthropic-ai", "ClaudeBot", "ChatGPT-User", "PerplexityBot", "OAI-SearchBot", "claude-web", "YouBot", "Applebot", "Amazonbot", "DuckAssistBot", "Bingbot", "MistralAI-User", "Bytespider"],
+        allow: "/",
+        disallow: ["/api/", "/dashboard"],
+      },
+      // Pure scraping bots — BLOCK
+      {
+        userAgent: ["CCBot", "Diffbot", "Applebot-Extended", "cohere-ai"],
+        disallow: "/",
+      },
     ],
     sitemap: "https://aidads.com/sitemap.xml",
   };
